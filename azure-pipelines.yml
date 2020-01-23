@@ -17,3 +17,15 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'VSTest'
+    testResultsFiles: 'example.trx'
+    searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
+    #mergeTestResults: false # Optional
+    #failTaskOnFailedTests: false # Optional
+    testRunTitle: 'example test run'
+    #buildPlatform: # Optional
+    #buildConfiguration: # Optional
+    publishRunAttachments: true # Optional

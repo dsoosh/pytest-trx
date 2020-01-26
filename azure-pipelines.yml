@@ -12,8 +12,7 @@ pool:
 steps:
 
 - script: |
-    pip install pipenv
-    pipenv install
+    pip install -r requirements.txt
     pytest test_example.py
   displayName: 'pytest'
 

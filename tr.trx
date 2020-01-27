@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<TestRun xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" id="9d51ea0f-2561-3649-a167-702888d5759b" name="example">
-  <Times creation="2020-01-27 15:42:12.653729" start="2020-01-27 15:42:12.664811" finish="2020-01-27 15:42:12.877383"/>
+<TestRun xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" id="5342fc0f-4263-3982-be4b-c1d95645bc5c" name="example">
+  <Times creation="2020-01-27 15:46:32.837094" start="2020-01-27 15:46:32.848090" finish="2020-01-27 15:46:32.980865"/>
   <TestDefinitions>
     <UnitTest id="test_example.py::test_no_attachment" name="test_example.py::test_no_attachment">
       <TestMethod codeBase="dummy" className="dummy" name="dummy"/>
@@ -23,7 +23,7 @@
   </TestDefinitions>
   <Results>
     <UnitTestResult testId="test_example.py::test_no_attachment" testName="test_example.py::test_no_attachment" testType="UnitTest" testListId="dummy" computerName="dummy" outcome="PASSED" duration="0.0"/>
-    <UnitTestResult testId="test_example.py::test_fail" testName="test_example.py::test_fail" testType="UnitTest" testListId="dummy" computerName="dummy" outcome="FAILED" duration="0.0008683204650878906">
+    <UnitTestResult testId="test_example.py::test_fail" testName="test_example.py::test_fail" testType="UnitTest" testListId="dummy" computerName="dummy" outcome="FAILED" duration="0.0">
       <Output>
         <ErrorInfo>
           <Message>C:\Users\dariu\PycharmProjects\pytest-trx\test_example.py:22: assert False</Message>
@@ -48,7 +48,7 @@ test_example.py:8: AssertionError</StackTrace>
         </ErrorInfo>
       </Output>
     </UnitTestResult>
-    <UnitTestResult testId="test_example.py::test_failing_teardown" testName="test_example.py::test_failing_teardown" testType="UnitTest" testListId="dummy" computerName="dummy" outcome="PASSED" duration="0.0009729862213134766">
+    <UnitTestResult testId="test_example.py::test_failing_teardown" testName="test_example.py::test_failing_teardown" testType="UnitTest" testListId="dummy" computerName="dummy" outcome="PASSED" duration="0.0">
       <Output>
         <ErrorInfo>
           <Message>C:\Users\dariu\PycharmProjects\pytest-trx\test_example.py:14: assert False</Message>
@@ -62,12 +62,12 @@ test_example.py:14: AssertionError</StackTrace>
         </ErrorInfo>
       </Output>
     </UnitTestResult>
-    <UnitTestResult testId="test_example.py::test_attachment" testName="test_example.py::test_attachment" testType="UnitTest" testListId="dummy" computerName="dummy" outcome="PASSED" duration="0.0009975433349609375">
+    <UnitTestResult testId="test_example.py::test_attachment" testName="test_example.py::test_attachment" testType="UnitTest" testListId="dummy" computerName="dummy" outcome="PASSED" duration="0.0">
       <ResultFiles>
-        <ResultFile path="C:\Users\dariu\PycharmProjects\pytest-trx\test_example.py\lena.png"/>
+        <ResultFile path="C:\Users\dariu\PycharmProjects\pytest-trx\lena.png"/>
       </ResultFiles>
     </UnitTestResult>
-    <UnitTestResult testId="test_example.py::test_failing_with_traceback" testName="test_example.py::test_failing_with_traceback" testType="UnitTest" testListId="dummy" computerName="dummy" outcome="FAILED" duration="0.0058057308197021484">
+    <UnitTestResult testId="test_example.py::test_failing_with_traceback" testName="test_example.py::test_failing_with_traceback" testType="UnitTest" testListId="dummy" computerName="dummy" outcome="FAILED" duration="0.002991914749145508">
       <Output>
         <StdOut>loopeedeedoo
 loopeedeedoo

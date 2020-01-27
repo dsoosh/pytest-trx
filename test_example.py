@@ -31,7 +31,7 @@ def test_failing_teardown(failing_teardown):
 
 
 def test_attachment(trx, add_nunit_attachment):
-    join = os.path.join(os.path.abspath(__file__), "lena.png")
+    join = os.path.join(os.path.dirname(os.path.abspath(__file__)), "lena.png")
     add_nunit_attachment(join, "example")
     trx.attachments.append(join)
 

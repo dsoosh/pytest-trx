@@ -30,8 +30,10 @@ def test_failing_teardown(failing_teardown):
     pass
 
 
-def test_attachment(trx):
-    trx.attachments.append(os.path.join(os.path.abspath(__file__), "lena.png"))
+def test_attachment(trx, add_nunit_attachment):
+    join = os.path.join(os.path.abspath(__file__), "lena.png")
+    add_nunit_attachment(join, "example")
+    trx.attachments.append(join)
 
 
 def test_failing_with_traceback():

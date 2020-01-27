@@ -1,18 +1,19 @@
 from __future__ import annotations
-import time
-import uuid
+
+import uuid as _uuid
 from datetime import datetime
-from pprint import pprint
-from typing import Dict, List, Type
+from typing import Dict, List, Any
 
 import pytest
-from _pytest.config import Config
-from _pytest.fixtures import FixtureDef, FixtureRequest
+from _pytest.fixtures import FixtureRequest
 from _pytest.main import Session
 from _pytest.nodes import Item
 from _pytest.reports import TestReport
-from lxml.builder import ElementMaker
 from lxml.etree import Element, tostring, SubElement
+
+
+def uuid(obj: Any) -> str:
+    return str(_uuid.uuid3(namespace=_uuid.NAMESPACE_DNS, name=str(obj)))
 
 
 class Report:
@@ -30,13 +31,14 @@ class Report:
 
 
 class TrxBuilder:
-    tests: Dict[Item, Report]
+    tests: Dict[str, Report]
+    uid = uuid(object())
 
     def __init__(self):
         self._root: Element = Element("TestRun",
                                       attrib={
                                           "xmlns": "http://microsoft.com/schemas/VisualStudio/TeamTest/2010",
-                                          "id": str(uuid.uuid4()),
+                                          "id": self.uid,
                                           "name": "example",
                                       })
         self.tests = dict()

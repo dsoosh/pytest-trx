@@ -23,8 +23,8 @@ steps:
 
 - task: PublishTestResults@2
   inputs:
-    testResultsFormat: 'NUnit'
-    testResultsFiles: '**/test-results.xml'
+    testResultsFormat: 'VSTest'
+    testResultsFiles: '**/tr.trx'
     searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
     #mergeTestResults: false # Optional
     #failTaskOnFailedTests: false # Optional

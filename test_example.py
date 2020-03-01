@@ -32,7 +32,7 @@ def test_failing_teardown(failing_teardown):
 
 
 def test_attachment(trx):
-    path = os.path.join(Path(Path(__file__).parent, "lena.png"))
+    path = os.path.join(Path(Path(__file__).parent, "tr", "In", "lena.png"))
     trx.attachments.append(path)
 
 

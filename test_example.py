@@ -31,12 +31,14 @@ def test_failing_teardown(failing_teardown):
     pass
 
 
-def test_attachment(trx):
+def test_attachment(trx, add_nunit_attachment):
     path = os.path.join(Path(Path(__file__).parent, "lena.png"))
+    add_nunit_attachment(Path(os.getcwd(), "lena.png"), "lena")
     trx.attachments.append(path)
 
-def test_attachment_with_fail(trx):
+def test_attachment_with_fail(trx, add_nunit_attachment):
     path = os.path.join(Path(Path(__file__).parent, "lena.png"))
+    add_nunit_attachment(Path(os.getcwd(), "lena.png"), "lena")
     trx.attachments.append(path)
     pytest.fail("woah")
 

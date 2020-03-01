@@ -18,13 +18,13 @@ steps:
 
 - script: |
     pip install -r requirements.txt
-    pytest test_example.py
+    pytest test_example.py -v --nunit-xml=test-results.xml
   displayName: 'pytest'
 
 - task: PublishTestResults@2
   inputs:
-    testResultsFormat: 'VSTest'
-    testResultsFiles: '**/tr.trx'
+    testResultsFormat: 'NUnit'
+    testResultsFiles: '**/nunit.xml'
     searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
     #mergeTestResults: false # Optional
     #failTaskOnFailedTests: false # Optional

@@ -18,7 +18,7 @@ steps:
 
 - script: |
     pip install -r requirements.txt
-    pytest test_example.py --nunit-xml=test-results.xml
+    pytest test_example.py
   displayName: 'pytest'
 
 - task: PublishTestResults@2

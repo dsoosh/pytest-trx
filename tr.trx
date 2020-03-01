@@ -1,95 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<TestRun xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" id="5342fc0f-4263-3982-be4b-c1d95645bc5c" name="example">
-  <Times creation="2020-01-27 15:46:32.837094" start="2020-01-27 15:46:32.848090" finish="2020-01-27 15:46:32.980865"/>
+<TestRun xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" id="1fd0420d-cb1d-300d-afd5-ae600d00f9b0" name="example">
+  <Times creation="2020-03-01 20:21:40.668257" start="2020-03-01 20:21:40.675234" finish="2020-03-01 20:21:40.692147"/>
   <TestDefinitions>
-    <UnitTest id="test_example.py::test_no_attachment" name="test_example.py::test_no_attachment">
-      <TestMethod codeBase="dummy" className="dummy" name="dummy"/>
-    </UnitTest>
-    <UnitTest id="test_example.py::test_fail" name="test_example.py::test_fail">
-      <TestMethod codeBase="dummy" className="dummy" name="dummy"/>
-    </UnitTest>
-    <UnitTest id="test_example.py::test_failing_setup" name="test_example.py::test_failing_setup">
-      <TestMethod codeBase="dummy" className="dummy" name="dummy"/>
-    </UnitTest>
-    <UnitTest id="test_example.py::test_failing_teardown" name="test_example.py::test_failing_teardown">
-      <TestMethod codeBase="dummy" className="dummy" name="dummy"/>
-    </UnitTest>
-    <UnitTest id="test_example.py::test_attachment" name="test_example.py::test_attachment">
-      <TestMethod codeBase="dummy" className="dummy" name="dummy"/>
-    </UnitTest>
-    <UnitTest id="test_example.py::test_failing_with_traceback" name="test_example.py::test_failing_with_traceback">
-      <TestMethod codeBase="dummy" className="dummy" name="dummy"/>
+    <UnitTest id="28375a2a-505b-37c1-a9bf-f9da2a481978" name="test_example.py::test_attachment">
+      <TestMethod codeBase="_pytest.python" className="&lt;Module test_example.py&gt;" name="test_attachment"/>
     </UnitTest>
   </TestDefinitions>
   <Results>
-    <UnitTestResult testId="test_example.py::test_no_attachment" testName="test_example.py::test_no_attachment" testType="UnitTest" testListId="dummy" computerName="dummy" outcome="PASSED" duration="0.0"/>
-    <UnitTestResult testId="test_example.py::test_fail" testName="test_example.py::test_fail" testType="UnitTest" testListId="dummy" computerName="dummy" outcome="FAILED" duration="0.0">
-      <Output>
-        <ErrorInfo>
-          <Message>C:\Users\dariu\PycharmProjects\pytest-trx\test_example.py:22: assert False</Message>
-          <StackTrace>def test_fail():
-&gt;       assert False
-E       assert False
-
-test_example.py:22: AssertionError</StackTrace>
-        </ErrorInfo>
-      </Output>
-    </UnitTestResult>
-    <UnitTestResult testId="test_example.py::test_failing_setup" testName="test_example.py::test_failing_setup" testType="UnitTest" testListId="dummy" computerName="dummy">
-      <Output>
-        <ErrorInfo>
-          <Message>C:\Users\dariu\PycharmProjects\pytest-trx\test_example.py:8: assert False</Message>
-          <StackTrace>@pytest.fixture
-    def failing_setup():
-&gt;       assert False
-E       assert False
-
-test_example.py:8: AssertionError</StackTrace>
-        </ErrorInfo>
-      </Output>
-    </UnitTestResult>
-    <UnitTestResult testId="test_example.py::test_failing_teardown" testName="test_example.py::test_failing_teardown" testType="UnitTest" testListId="dummy" computerName="dummy" outcome="PASSED" duration="0.0">
-      <Output>
-        <ErrorInfo>
-          <Message>C:\Users\dariu\PycharmProjects\pytest-trx\test_example.py:14: assert False</Message>
-          <StackTrace>@pytest.fixture
-    def failing_teardown():
-        yield
-&gt;       assert False
-E       assert False
-
-test_example.py:14: AssertionError</StackTrace>
-        </ErrorInfo>
-      </Output>
-    </UnitTestResult>
-    <UnitTestResult testId="test_example.py::test_attachment" testName="test_example.py::test_attachment" testType="UnitTest" testListId="dummy" computerName="dummy" outcome="PASSED" duration="0.0">
+    <UnitTestResult testId="28375a2a-505b-37c1-a9bf-f9da2a481978" testName="test_attachment" testType="UnitTest" testListId="c31513b8-01cb-386b-98ec-d109d2be6db4" computerName="dummy" outcome="PASSED" duration="0.0">
       <ResultFiles>
         <ResultFile path="C:\Users\dariu\PycharmProjects\pytest-trx\lena.png"/>
       </ResultFiles>
-    </UnitTestResult>
-    <UnitTestResult testId="test_example.py::test_failing_with_traceback" testName="test_example.py::test_failing_with_traceback" testType="UnitTest" testListId="dummy" computerName="dummy" outcome="FAILED" duration="0.002991914749145508">
       <Output>
-        <StdOut>loopeedeedoo
-loopeedeedoo
+        <StdOut>set attachments  28375a2a-505b-37c1-a9bf-f9da2a481978 &lt;Element UnitTestResult at 0x1bd3609df08&gt; &lt;Element Results at 0x1bd3609ddc8&gt;
 </StdOut>
-        <ErrorInfo>
-          <Message>C:\Users\dariu\PycharmProjects\pytest-trx\test_example.py:41: RecursionError: maximum recursion depth exceeded</Message>
-          <StackTrace>def test_failing_with_traceback():
-        def loop():
-            return loop()
-    
-        print("loopeedeedoo")
-&gt;       loop()
-
-test_example.py:44: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-test_example.py:41: in loop
-    return loop()
-test_example.py:41: in loop
-    return loop()
-E   RecursionError: maximum recursion depth exceeded
-!!! Recursion detected (same locals &amp; position)</StackTrace>
-        </ErrorInfo>
       </Output>
     </UnitTestResult>
   </Results>

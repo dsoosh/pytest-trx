@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 
 import pytest
 
@@ -30,10 +31,9 @@ def test_failing_teardown(failing_teardown):
     pass
 
 
-def test_attachment(trx, add_nunit_attachment):
-    join = os.path.join(os.path.dirname(os.path.abspath(__file__)), "lena.png")
-    add_nunit_attachment(join, "example")
-    trx.attachments.append(join)
+def test_attachment(trx):
+    path = os.path.join(Path(Path(__file__).parent, "lena.png"))
+    trx.attachments.append(path)
 
 
 def test_failing_with_traceback():

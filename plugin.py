@@ -58,8 +58,9 @@ class TrxBuilder:
         return self._set_times("creation", dt)
 
     def set_attachments(self, test: Item, attachments: List[str]):
-        results = self._root.find("Results")
-        unittestresult = self._get_or_create(results, "UnitTestResult", testId=test.nodeid)
+        results = self._get_or_create(self._root, "Results")
+        unittestresult = self._get_or_create(results, "UnitTestResult", testId=uuid(test.nodeid))
+        print("set attachments ", uuid(test.nodeid), unittestresult, results)
         result_files = self._get_or_create(unittestresult, "ResultFiles")
         for attachment in attachments:
             self._get_or_create(result_files, "ResultFile", path=attachment)
@@ -79,12 +80,13 @@ class TrxBuilder:
 
     def set_test_result(self, result: TestReport, test_type: str = "UnitTest"):
         results = self._get_or_create(self._root, "Results")
-        _result = self._get_or_create(results, test_type + "Result", testId=result.nodeid)
+        _result = self._get_or_create(results, test_type + "Result", testId=uuid(result.nodeid))
+        print("set test result ", uuid(result.nodeid), _result, results)
         _result.attrib.update({
-            "testName": result.nodeid,  # TODO
+            "testName": result.location[2],  # TODO
             "testType": test_type,  # TODO
-            "testId": result.nodeid,  # TODO
-            "testListId": "dummy",  # TODO
+            "testId": uuid(result.nodeid),  # TODO
+            "testListId": uuid("dummy"),  # TODO
             "computerName": "dummy",  # TODO
         })
         if result.when == "call":
@@ -117,13 +119,13 @@ class TrxBuilder:
 
     def set_test_definition(self, item: Item, test_type: str = "UnitTest"):
         definitions = self._get_or_create(self._root, "TestDefinitions")
-        definition = self._get_or_create(definitions, test_type, id=item.nodeid)
-        definition.attrib.update({"id": item.nodeid, "name": item.nodeid})
+        definition = self._get_or_create(definitions, test_type, id=uuid(item.nodeid))
+        definition.attrib.update({"id": uuid(item.nodeid), "name": item.nodeid})
         test_method = self._get_or_create(definition, "TestMethod")
         test_method.attrib.update({
-            "codeBase": "dummy",  # TODO
-            "className": "dummy",  # TODO
-            "name": "dummy",  # TODO
+            "codeBase": str(item.__module__),
+            "className": str(item.parent),
+            "name": item.name,
         })
         return self
 

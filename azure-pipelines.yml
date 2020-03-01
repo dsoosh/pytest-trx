@@ -38,3 +38,4 @@ steps:
   inputs:
     pathtoPublish: '.'
     artifactName: 'drop'
+  condition: always()

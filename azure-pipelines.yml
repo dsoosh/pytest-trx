@@ -33,3 +33,8 @@ steps:
     #buildConfiguration: # Optional
     publishRunAttachments: true # Optional
   condition: always()
+
+- task: PublishBuildArtifacts@1
+  inputs:
+  pathtoPublish: '.'
+  artifactName: 'drop'

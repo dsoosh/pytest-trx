@@ -1,7 +1,9 @@
 from __future__ import annotations
 
+import os
 import uuid as _uuid
 from datetime import datetime
+from pathlib import Path
 from typing import Dict, List, Any
 
 import pytest
@@ -42,6 +44,12 @@ class TrxBuilder:
                                           "name": "example",
                                       })
         self.tests = dict()
+
+        self.definitions = self._get_or_create(self._root, "TestDefinitions")
+        self.test_lists = self._get_or_create(self._root, "TestLists")
+        self.test_entries = self._get_or_create(self._root, "TestEntries")
+        self.set_test_list("Results Not in a List")
+        self.set_test_list("All Loaded Results")
 
     def set_start_time(self, dt: datetime) -> TrxBuilder:
         return self._set_times("start", dt)
@@ -118,9 +126,8 @@ class TrxBuilder:
         return output
 
     def set_test_definition(self, item: Item, test_type: str = "UnitTest"):
-        definitions = self._get_or_create(self._root, "TestDefinitions")
-        definition = self._get_or_create(definitions, test_type, id=uuid(item.nodeid))
-        definition.attrib.update({"id": uuid(item.nodeid), "name": item.nodeid})
+        definition = self._get_or_create(self.definitions, test_type, id=uuid(item.nodeid))
+        definition.attrib.update({"id": uuid(item.nodeid), "name": item.nodeid, "storage":  os.getcwd()})
         test_method = self._get_or_create(definition, "TestMethod")
         test_method.attrib.update({
             "codeBase": str(item.__module__),
@@ -128,6 +135,19 @@ class TrxBuilder:
             "name": item.name,
         })
         return self
+
+    def set_test_list(self, name):
+        self._get_or_create(self.test_lists, "TestList", id=uuid(name), name=name)
+        return self
+
+    def _add_execution(self, result: TestReport):
+        definition = self._get_or_create(self.definitions, "*", id=uuid(result.nodeid))
+        return self._get_or_create(definition, "Execution", id=uuid(result.nodeid + "execution"))
+
+    def _add_entry(self, execution: Element, result: TestReport):
+        test_list = self._get_or_create(self.test_lists, "TestList", name="Results Not in a List")
+        self._get_or_create(self.test_entries, "TestEntry", testId=uuid(result.nodeid), executionId=execution.get("id"),
+                            testListId=test_list.get("id"))
 
 
 class Plugin:

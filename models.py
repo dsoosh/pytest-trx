@@ -1,6 +1,7 @@
 import getpass
 import uuid
 from dataclasses import dataclass
+from typing import Any
 
 from attrdict import AttrDict
 
@@ -57,3 +58,15 @@ t = Times()
 
 i = AttrDict({"foo": 1})
 print(i.foo)
+
+from import uuid as _uuid
+
+def uuid(obj: Any) -> str:
+    return str(_uuid.uuid3(namespace=_uuid.NAMESPACE_DNS, name=str(obj)))
+
+class UUID:
+    def __init__(self, name):
+        self.name = name
+
+    def __get__(self, instance, owner):
+        return uuid(getattr(instance, self.name))

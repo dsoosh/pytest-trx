@@ -1,19 +1,104 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<TestRun xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" id="1fd0420d-cb1d-300d-afd5-ae600d00f9b0" name="example">
-  <Times creation="2020-03-01 20:21:40.668257" start="2020-03-01 20:21:40.675234" finish="2020-03-01 20:21:40.692147"/>
+<TestRun xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" id="ad6f625f-c42d-36d2-ba73-3249a721c81f" name="example">
   <TestDefinitions>
-    <UnitTest id="28375a2a-505b-37c1-a9bf-f9da2a481978" name="test_example.py::test_attachment">
+    <UnitTest id="3db8570f-1cda-316a-9dc6-c3e5e7906ca9" name="test_example.py::test_no_attachment" storage="C:\Users\dariu\PycharmProjects\pytest-trx">
+      <TestMethod codeBase="_pytest.python" className="&lt;Module test_example.py&gt;" name="test_no_attachment"/>
+    </UnitTest>
+    <UnitTest id="4a61b0df-2ca6-3ff7-944b-8987703edded" name="test_example.py::test_fail" storage="C:\Users\dariu\PycharmProjects\pytest-trx">
+      <TestMethod codeBase="_pytest.python" className="&lt;Module test_example.py&gt;" name="test_fail"/>
+    </UnitTest>
+    <UnitTest id="ba083541-00e1-3a17-a929-ad6521b09855" name="test_example.py::test_failing_setup" storage="C:\Users\dariu\PycharmProjects\pytest-trx">
+      <TestMethod codeBase="_pytest.python" className="&lt;Module test_example.py&gt;" name="test_failing_setup"/>
+    </UnitTest>
+    <UnitTest id="03bf30bc-37fe-356d-b42d-f111592b39e7" name="test_example.py::test_failing_teardown" storage="C:\Users\dariu\PycharmProjects\pytest-trx">
+      <TestMethod codeBase="_pytest.python" className="&lt;Module test_example.py&gt;" name="test_failing_teardown"/>
+    </UnitTest>
+    <UnitTest id="28375a2a-505b-37c1-a9bf-f9da2a481978" name="test_example.py::test_attachment" storage="C:\Users\dariu\PycharmProjects\pytest-trx">
       <TestMethod codeBase="_pytest.python" className="&lt;Module test_example.py&gt;" name="test_attachment"/>
     </UnitTest>
+    <UnitTest id="f9d7520f-1246-3b8b-a09f-22cf373395c4" name="test_example.py::test_failing_with_traceback" storage="C:\Users\dariu\PycharmProjects\pytest-trx">
+      <TestMethod codeBase="_pytest.python" className="&lt;Module test_example.py&gt;" name="test_failing_with_traceback"/>
+    </UnitTest>
   </TestDefinitions>
+  <TestLists>
+    <TestList id="6071cc16-20cc-3f89-a364-db63b4b5c441" name="Results Not in a List"/>
+    <TestList id="414abf7c-38e1-39ee-8732-be610fc5a13f" name="All Loaded Results"/>
+  </TestLists>
+  <TestEntries/>
+  <Times creation="2020-03-01 21:44:49.913376" start="2020-03-01 21:44:49.913376" finish="2020-03-01 21:44:49.998035"/>
   <Results>
+    <UnitTestResult testId="3db8570f-1cda-316a-9dc6-c3e5e7906ca9" testName="test_no_attachment" testType="UnitTest" testListId="c31513b8-01cb-386b-98ec-d109d2be6db4" computerName="dummy" outcome="PASSED" duration="0.0"/>
+    <UnitTestResult testId="4a61b0df-2ca6-3ff7-944b-8987703edded" testName="test_fail" testType="UnitTest" testListId="c31513b8-01cb-386b-98ec-d109d2be6db4" computerName="dummy" outcome="FAILED" duration="0.0">
+      <Output>
+        <ErrorInfo>
+          <Message>C:\Users\dariu\PycharmProjects\pytest-trx\test_example.py:23: assert False</Message>
+          <StackTrace>def test_fail():
+&gt;       assert False
+E       assert False
+
+test_example.py:23: AssertionError</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult testId="ba083541-00e1-3a17-a929-ad6521b09855" testName="test_failing_setup" testType="UnitTest" testListId="c31513b8-01cb-386b-98ec-d109d2be6db4" computerName="dummy">
+      <Output>
+        <ErrorInfo>
+          <Message>C:\Users\dariu\PycharmProjects\pytest-trx\test_example.py:9: assert False</Message>
+          <StackTrace>@pytest.fixture
+    def failing_setup():
+&gt;       assert False
+E       assert False
+
+test_example.py:9: AssertionError</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult testId="03bf30bc-37fe-356d-b42d-f111592b39e7" testName="test_failing_teardown" testType="UnitTest" testListId="c31513b8-01cb-386b-98ec-d109d2be6db4" computerName="dummy" outcome="PASSED" duration="0.0">
+      <Output>
+        <ErrorInfo>
+          <Message>C:\Users\dariu\PycharmProjects\pytest-trx\test_example.py:15: assert False</Message>
+          <StackTrace>@pytest.fixture
+    def failing_teardown():
+        yield
+&gt;       assert False
+E       assert False
+
+test_example.py:15: AssertionError</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
     <UnitTestResult testId="28375a2a-505b-37c1-a9bf-f9da2a481978" testName="test_attachment" testType="UnitTest" testListId="c31513b8-01cb-386b-98ec-d109d2be6db4" computerName="dummy" outcome="PASSED" duration="0.0">
       <ResultFiles>
         <ResultFile path="C:\Users\dariu\PycharmProjects\pytest-trx\lena.png"/>
       </ResultFiles>
       <Output>
-        <StdOut>set attachments  28375a2a-505b-37c1-a9bf-f9da2a481978 &lt;Element UnitTestResult at 0x1bd3609df08&gt; &lt;Element Results at 0x1bd3609ddc8&gt;
+        <StdOut>set attachments  28375a2a-505b-37c1-a9bf-f9da2a481978 &lt;Element UnitTestResult at 0x2322ec3a948&gt; &lt;Element Results at 0x2322ec3a6c8&gt;
 </StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult testId="f9d7520f-1246-3b8b-a09f-22cf373395c4" testName="test_failing_with_traceback" testType="UnitTest" testListId="c31513b8-01cb-386b-98ec-d109d2be6db4" computerName="dummy" outcome="FAILED" duration="0.0">
+      <Output>
+        <StdOut>loopeedeedoo
+loopeedeedoo
+</StdOut>
+        <ErrorInfo>
+          <Message>C:\Users\dariu\PycharmProjects\pytest-trx\test_example.py:41: RecursionError: maximum recursion depth exceeded</Message>
+          <StackTrace>def test_failing_with_traceback():
+        def loop():
+            return loop()
+    
+        print("loopeedeedoo")
+&gt;       loop()
+
+test_example.py:44: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+test_example.py:41: in loop
+    return loop()
+test_example.py:41: in loop
+    return loop()
+E   RecursionError: maximum recursion depth exceeded
+!!! Recursion detected (same locals &amp; position)</StackTrace>
+        </ErrorInfo>
       </Output>
     </UnitTestResult>
   </Results>
